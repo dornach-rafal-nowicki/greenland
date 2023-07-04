@@ -16,3 +16,5 @@ jobs:
     steps:
       - name: Run GH CLI
         run: gh release create test
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
