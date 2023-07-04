@@ -24,3 +24,5 @@ jobs:
       
       - name: Merge master to develop
         run: gh pr merge develop
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
