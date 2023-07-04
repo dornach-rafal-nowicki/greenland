@@ -21,3 +21,6 @@ jobs:
         run: gh release create test
         env:
           GITHUB_TOKEN: ${{ github.token }}
+      
+      - name: Merge master to develop
+        run: gh pr merge develop
