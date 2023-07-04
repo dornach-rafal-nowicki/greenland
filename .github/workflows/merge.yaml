@@ -23,7 +23,7 @@ jobs:
       #     GITHUB_TOKEN: ${{ github.token }}
       
       - name: Create PR
-        run: gh pr create --fill
+        run: gh pr create --title "test" --body "test"
         env:
           GITHUB_TOKEN: ${{ github.token }}
 
