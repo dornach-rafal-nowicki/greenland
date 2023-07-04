@@ -14,6 +14,9 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 3
     steps:
+
+      - uses: actions/checkout@v3
+
       - name: Run GH CLI
         run: gh release create test
         env:
