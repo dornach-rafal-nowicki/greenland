@@ -36,7 +36,7 @@ jobs:
           echo current branch `git rev-parse --abbrev-ref HEAD`
           git fetch --unshallow
           git pull
-          git merge --no-ff as-000/new-workflow -m "Auto-merge back to develop branch"
+          git merge --no-ff master -m "Auto-merge back to develop branch"
           git push
         env:
           GITHUB_TOKEN: ${{ github.token }}
