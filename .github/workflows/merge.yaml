@@ -22,7 +22,12 @@ jobs:
       #   env:
       #     GITHUB_TOKEN: ${{ github.token }}
       
-      - name: Merge master to develop
+      - name: Create PR
+        run: gh pr create
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+
+      - name: Merge branch
         run: gh pr merge develop
         env:
           GITHUB_TOKEN: ${{ github.token }}
