@@ -17,17 +17,26 @@ jobs:
 
       - uses: actions/checkout@v3
 
-      # - name: Run GH CLI
-      #   run: gh release create test
-      #   env:
-      #     GITHUB_TOKEN: ${{ github.token }}
-      
-      - name: Create PR
-        run: gh pr create --title "test" --body "test" --base develop
+      - name: show current branch
+        run: |
+          echo current branch `git rev-parse --abbrev-ref HEAD`
+
+      - name: Run GH CLI
+        run: gh release create test
         env:
           GITHUB_TOKEN: ${{ github.token }}
 
+      - uses: actions/checkout@v3
+        with:
+          ref: 'develop'
+
       - name: Merge branch
-        run: gh pr merge develop
+        run: |
+          echo "github.ref = ${{ github.ref }}"
+          echo current branch `git rev-parse --abbrev-ref HEAD`
+          git fetch --unshallow
+          git pull
+          git merge --no-ff develop -m "Auto-merge back to develop branch"
+          git push
         env:
           GITHUB_TOKEN: ${{ github.token }}
