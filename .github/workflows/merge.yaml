@@ -21,10 +21,10 @@ jobs:
         run: |
           echo current branch `git rev-parse --abbrev-ref HEAD`
 
-      - name: Run GH CLI
-        run: gh release create test
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
+      # - name: Run GH CLI
+      #   run: gh release create test
+      #   env:
+      #     GITHUB_TOKEN: ${{ github.token }}
 
       - uses: actions/checkout@v3
         with:
