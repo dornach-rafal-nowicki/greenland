@@ -15,4 +15,4 @@ jobs:
     timeout-minutes: 3
     steps:
       - name: Run GH CLI
-        run: gh --version
+        run: gh release create test
