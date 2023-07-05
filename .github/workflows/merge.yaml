@@ -30,6 +30,11 @@ jobs:
         with:
           ref: 'develop'
 
+      - name: Set Git config
+        run: |
+            git config --local user.email "actions@github.com"
+            git config --local user.name "Github Actions"
+
       - name: Merge branch
         run: |
           echo "github.ref = ${{ github.ref }}"
